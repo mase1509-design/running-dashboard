@@ -25,7 +25,7 @@ function App() {
     if (window.confirm('Alle Einträge löschen?')) {
       setEntries([]);
     }
-  };
+  }; 
 
   return (
     <div className="container">
