@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Running Dashboard</title>
+<link rel="icon" type="image/png" href="assets/logo.png" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="top">
+      <div class="brand">
+        <img src="assets/logo.png" alt="Running Dashboard" class="logo" />
+        <div>
+          <h1>Running Dashboard</h1>
+          <p class="subtitle">Läufe lokal speichern · Datum · Distanz · Dauer · km/h</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="card form-card">
+        <form id="entryForm" autocomplete="off">
+          <div class="row">
+            <label for="date">Datum</label>
+            <input id="date" type="date" />
+          </div>
+          <div class="row">
+            <label for="distance">Entfernung (km)</label>
+            <input id="distance" type="number" step="0.1" min="0" placeholder="z.B. 5.0" />
+            <small class="hint">Eine Nachkommastelle</small>
+          </div>
+          <div class="row duration">
+            <label>Dauer (Min : Sek)</label>
+            <div class="duration-inputs">
+              <input id="minutes" type="number" min="0" placeholder="Min" />
+              <span class="colon">:</span>
+              <input id="seconds" type="number" min="0" max="59" placeholder="Sek" />
+            </div>
+          </div>
+          <div class="row">
+            <label for="speed">km/h</label>
+            <input id="speed" type="number" step="0.1" min="0" placeholder="wird berechnet" />
+          </div>
+          <div class="actions">
+            <button id="saveBtn" class="btn primary" type="submit">Speichern</button>
+            <button id="clearAllBtn" class="btn danger" type="button">Alle löschen</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="card table-card">
+        <h2>Übersicht</h2>
+        <div class="table-wrap">
+          <table id="entriesTable">
+            <thead>
+              <tr><th>Datum</th><th>Distanz (km)</th><th>Dauer</th><th>km/h</th><th>Aktionen</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div id="empty" class="empty">Noch keine Einträge.</div>
+      </section>
+    </main>
+
+    <footer class="footer">Lokal gespeichert im Browser · Keine Datenübertragung</footer>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
