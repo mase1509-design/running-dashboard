@@ -8,7 +8,7 @@ Data is stored locally in the browser (localStorage). The app includes a dark th
 1. Install Node.js (16+ recommended).
 2. In the project folder:
 
-```bash
+```bash 
 npm install
 npm start
 ```
