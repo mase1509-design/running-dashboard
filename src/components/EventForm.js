@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 function formatDateInput(date) {
   const d = new Date(date);
-  return d.toISOString().slice(0, 10);
+  return d.toISOString().slice(0, 10); 
 }
 
 export default function EventForm({ onAdd }) {
