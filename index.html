@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>Running Dashboard</title>
+
+<link rel="icon" type="image/png" href="assets/favicon.png" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Running Dashboard">
+<meta name="theme-color" content="#f7f7f7">
+
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="top">
+      <div class="logo-wrap" aria-hidden="true">
+        <img src="assets/logo.png" alt="Running Dashboard" class="logo animated" />
+      </div>
+      <h1 class="sr-only">Running Dashboard</h1>
+    </header>
+
+    <main class="main">
+      <section class="panel input-panel" aria-labelledby="form-title">
+        <h2 id="form-title" class="visually-hidden">Laufeintrag</h2>
+        <form id="entryForm" autocomplete="off">
+          <div class="row">
+            <label for="date">Datum</label>
+            <input id="date" type="date" />
+          </div>
+
+          <div class="row">
+            <label for="distance">Entfernung (km)</label>
+            <input id="distance" type="number" step="0.1" min="0" placeholder="z.B. 5.0" />
+            <small class="hint">Eine Nachkommastelle</small>
+          </div>
+
+          <div class="row duration">
+            <label>Dauer (Min : Sek)</label>
+            <div class="duration-inputs">
+              <input id="minutes" type="number" min="0" placeholder="Min" />
+              <span class="colon">:</span>
+              <input id="seconds" type="number" min="0" max="59" placeholder="Sek" />
+            </div>
+          </div>
+
+          <div class="row">
+            <label for="speed">km/h</label>
+            <input id="speed" type="number" step="0.1" min="0" placeholder="wird berechnet" />
+          </div>
+
+          <div class="actions">
+            <button id="saveBtn" class="btn primary" type="submit">+ Eintrag speichern</button>
+            <button id="clearAllBtn" class="btn danger" type="button">Alle löschen</button>
+          </div>
+        </form>
+
+        <div class="stats" id="stats" aria-live="polite">
+          <div class="stat">
+            <div class="stat-value" id="totalDistance">0.0 km</div>
+            <div class="stat-label">Gesamtdistanz</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value" id="totalTime">0:00</div>
+            <div class="stat-label">Gesamtdauer</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value" id="avgSpeed">0.0 km/h</div>
+            <div class="stat-label">Ø Geschwindigkeit</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel table-panel" aria-labelledby="table-title">
+        <h2 id="table-title">Übersicht</h2>
+        <div class="table-wrap">
+          <table id="entriesTable" class="table" role="table">
+            <thead>
+              <tr><th>Datum</th><th>Distanz (km)</th><th>Dauer</th><th>km/h</th><th>Aktionen</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div id="empty" class="empty">Noch keine Einträge.</div>
+      </section>
+    </main>
+
+    <footer class="footer">Lokal gespeichert im Browser · Keine Datenübertragung</footer>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
